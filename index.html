@@ -1,41 +1,12 @@
-<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SK Ultra 3D Apps</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
 
-<header>
-  <h1>🚀 SK ULTRA 3D APPS</h1>
-  <p>Next-Gen App Store Experience</p>
-</header>
-<marquee behavior="scroll" direction="left">
-<h1>web by  SHARAZ KHAN<h1>
-</marquee>
-
-<div class="apps-container">
-
-  <div class="card">
-    <div class="card-inner">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbsde7xfButJAOQ6_-JqTINTQ8KDABJ9w9aSudhzPhAw&s=10">
-      <h3>CapCut Pro</h3>
-      <span class="badge mod">MOD</span>
-      <p>Video Editing</p>
-      <a href="ccm.html" class="getapp">GET APP</a>
-    </div>
-  </div>
-
-
-
-</div>
-
-<script src="script.js"></script>
-</body>
-</html>
-<style>* {
+<style>
+* {
   box-sizing: border-box;
 }
 
@@ -57,6 +28,12 @@ header {
 header h1 {
   font-size: 32px;
   text-shadow: 0 0 20px #00eaff;
+}
+
+/* Marquee */
+marquee h1{
+  font-size:18px;
+  color:#00eaff;
 }
 
 /* Grid */
@@ -86,6 +63,7 @@ header h1 {
   transform-style: preserve-3d;
   transition: transform 0.15s ease, box-shadow 0.15s;
   box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+  position: relative;
 }
 
 /* Floating */
@@ -105,13 +83,11 @@ header h1 {
   transform: translateZ(60px);
 }
 
-.card-inner p,
-.card-inner a,
-.badge {
-  transform: translateZ(40px);
+.card-inner p {
+  transform: translateZ(50px);
 }
 
-/* Neon Glow */
+/* Neon Glow FIXED */
 .card-inner::after {
   content: "";
   position: absolute;
@@ -120,6 +96,7 @@ header h1 {
   box-shadow: 0 0 40px #00eaff;
   opacity: 0;
   transition: 0.3s;
+  pointer-events: none; /* 🔥 CLICK FIX */
 }
 
 .card-inner:hover::after {
@@ -127,15 +104,17 @@ header h1 {
 }
 
 /* Button */
-.card-inner a {
+.getapp {
   display: inline-block;
-  margin-top: 12px;
+  margin-top: 15px;
   padding: 10px 25px;
   background: linear-gradient(45deg, #00eaff, #00ff88);
   color: black;
   border-radius: 25px;
   text-decoration: none;
   font-weight: bold;
+  position: relative;
+  z-index: 5; /* 🔥 CLICK FIX */
 }
 
 /* Badges */
@@ -145,10 +124,46 @@ header h1 {
   border-radius: 20px;
   font-size: 12px;
   margin: 8px 0;
+  transform: translateZ(55px);
 }
 
 .mod { background: red; }
-.normal { background: limegreen; }</style><script>document.querySelectorAll(".card").forEach(card => {
+.normal { background: limegreen; }
+
+/* Mobile */
+@media(max-width:600px){
+  header h1{font-size:24px;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🚀 SK ULTRA 3D APPS</h1>
+  <p>Next-Gen App Store Experience</p>
+</header>
+
+<marquee behavior="scroll" direction="left">
+  <h1>WEB BY SHARAZ KHAN</h1>
+</marquee>
+
+<div class="apps-container">
+
+  <div class="card">
+    <div class="card-inner">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbsde7xfButJAOQ6_-JqTINTQ8KDABJ9w9aSudhzPhAw&s=10">
+      <h3>CapCut Pro</h3>
+      <span class="badge mod">MOD</span>
+      <p>Video Editing</p>
+      <a href="ccm.html" class="getapp">GET APP</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+document.querySelectorAll(".card").forEach(card => {
   const inner = card.querySelector(".card-inner");
 
   card.addEventListener("mousemove", e => {
@@ -163,4 +178,8 @@ header h1 {
   card.addEventListener("mouseleave", () => {
     inner.style.transform = "rotateY(0) rotateX(0) scale(1)";
   });
-});</script>
+});
+</script>
+
+</body>
+</html>
